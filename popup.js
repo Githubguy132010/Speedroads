@@ -35,8 +35,12 @@ document.getElementById('resetSpeed').addEventListener('click', () => {
     chrome.scripting.executeScript({
       target: {tabId: tabs[0].id},
       func: () => {
+        console.log("Resetting speed to 1"); // Add a log for debugging
+
+        // Check if config-vehicle-speed exists and set it to 1
         if (localStorage.getItem('config-vehicle-speed')) {
           localStorage.setItem('config-vehicle-speed', 1);
+          console.log("Vehicle speed reset to 1"); // Log the reset value
           alert('Vehicle speed reset to 1');
         } else {
           alert('config-vehicle-speed not found in localStorage.');
