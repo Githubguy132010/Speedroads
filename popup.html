@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Vehicle Speed</title>
+  <style>
+    /* Set the width of the popup to fit the button and input field */
+    body {
+      width: 230px; /* Adjusted to fit the input and button */
+      font-family: Arial, sans-serif;
+    }
+    #speedInput {
+      width: 100%; /* Make the input field take up full width */
+    }
+    button {
+      width: 100%; /* Make the button take up full width */
+    }
+    p {
+      font-size: 12px; /* Make the text smaller to fit neatly */
+      margin-top: 10px; /* Add a bit of space above the text */
+      line-height: 1.4; /* Adjust line spacing for readability */
+    }
+  </style>
+</head>
+<body>
+  <input type="number" id="speedInput" placeholder="Enter speed" min="1" max="1e+200">
+  <button id="setSpeed">Set Speed</button>
+  <p>(Left shift for boost doesn't work with high speeds, so just use right shift)</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Slow Roads Vehicle Speed Modifier",
+  "version": "1.0",
+  "description": "Modify the vehicle speed setting in localStorage on slowroads.io",
+  "permissions": [
+    "activeTab", 
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://slowroads.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
