@@ -14,11 +14,13 @@ document.getElementById('setSpeed').addEventListener('click', () => {
       chrome.scripting.executeScript({
         target: {tabId: tabs[0].id},
         func: (speed) => {
-          // Ensure localStorage is updated correctly
           if (localStorage.getItem('config-vehicle-speed')) {
             localStorage.setItem('config-vehicle-speed', speed);
             alert('Vehicle speed set to ' + speed);
             console.log('Vehicle speed set to:', speed);  // Debugging
+
+            // Auto-refresh the page
+            location.reload();
           } else {
             alert('config-vehicle-speed not found in localStorage.');
           }
@@ -39,11 +41,13 @@ document.getElementById('resetSpeed').addEventListener('click', () => {
       func: () => {
         console.log("Resetting speed to 1");
 
-        // Check if config-vehicle-speed exists and set it to 1
         if (localStorage.getItem('config-vehicle-speed')) {
           localStorage.setItem('config-vehicle-speed', 1);
           console.log("Vehicle speed reset to 1");
           alert('Vehicle speed reset to 1');
+
+          // Auto-refresh the page
+          location.reload();
         } else {
           alert('config-vehicle-speed not found in localStorage.');
         }
