@@ -1,3 +1,4 @@
+// Handle "Set Speed" button
 document.getElementById('setSpeed').addEventListener('click', () => {
   let speed = document.getElementById('speedInput').value;
   
@@ -26,4 +27,21 @@ document.getElementById('setSpeed').addEventListener('click', () => {
   } else {
     alert("Please enter a valid speed.");
   }
+});
+
+// Handle "Reset Speed" button
+document.getElementById('resetSpeed').addEventListener('click', () => {
+  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+    chrome.scripting.executeScript({
+      target: {tabId: tabs[0].id},
+      func: () => {
+        if (localStorage.getItem('config-vehicle-speed')) {
+          localStorage.setItem('config-vehicle-speed', 1);
+          alert('Vehicle speed reset to 1');
+        } else {
+          alert('config-vehicle-speed not found in localStorage.');
+        }
+      }
+    });
+  });
 });
